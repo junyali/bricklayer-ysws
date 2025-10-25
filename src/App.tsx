@@ -1,11 +1,13 @@
-import {OrpheusFlag} from './components/OrpheusFlag'
+import {OrpheusFlag} from './components/OrpheusFlag';
+import {Footer} from './components/Footer';
 
 function App() {
 	return (
-		<div>
-			<div>
+		<div className="min-h-screen flex flex-col">
+			<div className="flex-grow">
 				<OrpheusFlag />
 			</div>
+			<Footer />
 		</div>
 	)
 }
