@@ -20,7 +20,6 @@ body {
   background-size: 512px 512px;
   background-repeat: repeat;
   background-position: center;
-  min-height: 100vh;
 }
 
 a {
