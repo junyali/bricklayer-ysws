@@ -26,7 +26,7 @@ function App() {
 							<StepCard
 								title="Lay the foundation"
 								imagePath="/step_1.png"
-								iconPath="/roblox_studio.png"
+								iconPath="/roblox_studio_red.png"
 							/>
 							<StepCard
 								title="Wire it up"
@@ -35,7 +35,7 @@ function App() {
 							/>
 							<StepCard
 								title="Bricks at your doorstep"
-								imagePath=""
+								imagePath="/step_3.png"
 								iconPath="/pirate_ship.gif"
 							/>
 						</div>
