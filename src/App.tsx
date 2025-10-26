@@ -21,6 +21,15 @@ function App() {
 							className="w-full max-w-xl"
 						></img>
 					</div>
+					<h2
+						className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-16 bg-gradient-to-r from-red-500 via-yellow-400 to-green-500 drop-shadow-xl bg-clip-text drop-shadow-black text-transparent leading-tight px-4"
+						style={{
+							WebkitTextStroke: '1px white',
+							paintOrder: 'stroke fill'
+						}}
+					>
+						Make a game in the Roblox Engine. Get LEGO®!
+					</h2>
 					<div className="relative w-full max-w-xl mb-8 mx-auto drop-shadow-xl drop-shadow-black">
 						<img
 							src="/orpheus_lego.png"
