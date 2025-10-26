@@ -3,12 +3,12 @@ import {Footer} from './components/Footer';
 
 function App() {
 	return (
-		<div className="min-h-screen flex flex-col">
+		<div>
 			<div>
 				<OrpheusFlag />
 			</div>
 			<div className="flex justify-center items-center flex-grow">
-				<div className="text-slate-950 mx-8 md:max-w-6xl font-mono">
+				<div className="mt-16 text-slate-950 mx-8 md:max-w-6xl font-mono">
 					<div className="flex justify-center items-center align-middle">
 						<img
 							src="/bricklayer-logo.png"
@@ -19,7 +19,9 @@ function App() {
 
 				</div>
 			</div>
-			<Footer />
+			<div className="max-h-96 pt-16">
+				<Footer />
+			</div>
 		</div>
 	)
 }
