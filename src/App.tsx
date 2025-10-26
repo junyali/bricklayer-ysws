@@ -22,21 +22,24 @@ function App() {
 						></img>
 					</div>
 					<div>
-						<div className="flex flex-row items-center text-center justify-center space-x-4 sm:space-x-8 sm:space-y-6 md:space-y-0 py-6 text-md sm:text-2xl font-semibold">
+						<div className="flex flex-col lg:flex-row items-center text-center justify-center space-y-8 lg:space-y-0 lg:space-x-4 xl:space-x-8 py-6 text-lg sm:text-3xl font-bold whitespace-nowrap">
 							<StepCard
 								title="Lay the foundation"
 								imagePath="/step_1.png"
 								iconPath="/roblox_studio_red.png"
+								titleClassName="text-red-500 text-shadow-sm text-shadow-red-900"
 							/>
 							<StepCard
 								title="Wire it up"
 								imagePath="/step_2.png"
 								iconPath="/vscode.png"
+								titleClassName="text-blue-500 text-shadow-sm text-shadow-blue-900"
 							/>
 							<StepCard
-								title="Bricks at your doorstep"
+								title="Bricks @ your doorstep"
 								imagePath="/step_3.png"
 								iconPath="/pirate_ship.gif"
+								titleClassName="text-yellow-500 text-shadow-sm text-shadow-yellow-900"
 							/>
 						</div>
 					</div>
