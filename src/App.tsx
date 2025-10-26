@@ -58,6 +58,16 @@ function App() {
 							/>
 						</div>
 					</div>
+					<div>
+						<a href="/guide" className="flex justify-center">
+							<p
+								className="text-xl sm:text-2xl text-center bg-red-500 text-slate-50 mt-4 mx-w-54 px-3 py-4 rounded-sm font-semibold border-black border-4 bg-repeat bg-center"
+								style={{ backgroundImage: 'url(/box_stud_bright_red.png)' }}
+							>
+								Learn how to make a game ➜
+							</p>
+						</a>
+					</div>
 				</div>
 			</div>
 			<div className="mt-16 max-h-96 pt-16">
