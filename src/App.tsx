@@ -61,12 +61,37 @@ function App() {
 					<div>
 						<a href="/guide" className="flex justify-center">
 							<p
-								className="text-xl sm:text-2xl text-center bg-red-500 text-slate-50 mt-4 mx-w-54 px-3 py-4 rounded-sm font-semibold border-black border-4 bg-repeat bg-center"
+								className="text-xl sm:text-2xl text-center bg-red-500 text-slate-50 mt-4 mb-8 mx-w-54 px-3 py-4 rounded-sm font-semibold border-black border-4 bg-repeat bg-center"
 								style={{ backgroundImage: 'url(/box_stud_bright_red.png)' }}
 							>
 								Learn how to make a game ➜
 							</p>
 						</a>
+						<p
+							className="text-center text-2xl text-slate-50 font-bold pt-2 drop-shadow-lg drop-shadow-black"
+							style={{
+								WebkitTextStroke: '2px black',
+								paintOrder: 'stroke fill'
+							}}
+						>
+							You should also totally join{" "}
+							<a
+								href="https://hackclub.slack.com/archives/C091BU30NGK"
+								target="_blank"
+								className="text-3xl text-slate-400"
+							>
+								#bricklayer
+							</a>{" "}
+							on the{" "}
+							<a
+								href="https://hackclub.com/slack/"
+								target="_blank"
+							>
+								{" "}
+								Hack Club Slack
+							</a>
+							!
+						</p>
 					</div>
 				</div>
 			</div>
