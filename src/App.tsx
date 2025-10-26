@@ -14,11 +14,17 @@ function App() {
 			</div>
 			<div className="flex justify-center items-center flex-grow">
 				<div className="mt-16 text-slate-950 mx-8 md:max-w-6xl font-mono">
-					<div className="flex justify-center items-center align-middle">
+					<div className="flex justify-center items-center align-middle mb-8">
 						<img
 							src="/bricklayer-logo.png"
 							alt=""
 							className="w-full max-w-xl"
+						></img>
+					</div>
+					<div className="relative w-full max-w-xl mb-8 mx-auto drop-shadow-xl drop-shadow-black">
+						<img
+							src="/orpheus_lego.png"
+							alt=""
 						></img>
 					</div>
 					<div>
