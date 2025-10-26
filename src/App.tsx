@@ -51,7 +51,7 @@ function App() {
 					</div>
 				</div>
 			</div>
-			<div className="max-h-96 pt-16">
+			<div className="mt-16 max-h-96 pt-16">
 				<Footer />
 			</div>
 		</div>
