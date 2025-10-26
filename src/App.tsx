@@ -1,6 +1,7 @@
 import {OrpheusFlag} from './components/OrpheusFlag';
 import {Footer} from './components/Footer';
-import {NavBar} from "./components/NavBar.tsx";
+import {NavBar} from './components/NavBar.tsx';
+import {StepCard} from './components/StepCard.tsx';
 
 function App() {
 	return (
@@ -20,7 +21,25 @@ function App() {
 							className="w-full max-w-xl"
 						></img>
 					</div>
-
+					<div>
+						<div className="flex flex-row items-center text-center justify-center space-x-4 sm:space-x-8 sm:space-y-6 md:space-y-0 py-6 text-md sm:text-2xl font-semibold">
+							<StepCard
+								title="Lay the foundation"
+								imagePath="/step_1.png"
+								iconPath="/roblox_studio.png"
+							/>
+							<StepCard
+								title="Wire it up"
+								imagePath="/step_2.png"
+								iconPath="/vscode.png"
+							/>
+							<StepCard
+								title="Bricks at your doorstep"
+								imagePath=""
+								iconPath="/pirate_ship.gif"
+							/>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div className="max-h-96 pt-16">
