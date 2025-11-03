@@ -2,6 +2,7 @@ import {OrpheusFlag} from './components/OrpheusFlag';
 import {Footer} from './components/Footer';
 import {NavBar} from './components/NavBar.tsx';
 import {StepCard} from './components/StepCard.tsx';
+import {Separator} from './components/Separator.tsx';
 
 function App() {
 	return (
@@ -12,7 +13,7 @@ function App() {
 			<div className="fixed top-0 max-w-48 right-4 sm:right-5 md:right-10">
 				<NavBar />
 			</div>
-			<div className="flex justify-center items-center flex-grow">
+			<div className="flex justify-center items-center flex-grow mb-32">
 				<div className="mt-16 text-slate-950 mx-8 md:max-w-6xl font-mono">
 					<div className="flex justify-center items-center align-middle mb-8">
 						<img
@@ -95,7 +96,31 @@ function App() {
 					</div>
 				</div>
 			</div>
-			<div className="mt-16 max-h-96 pt-16">
+			<Separator />
+			<div
+				className="min-h-screen flex justify-center items-center py-16 bg-repeat bg-center"
+				style={{
+					backgroundImage: 'url(/inlet_bright_white.png)',
+					backgroundSize: '512px 512px'
+				}}
+			>
+				<div className="w-full px-8">
+					<h2
+						className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-center mb-16 text-red-500/80 drop-shadow-lg drop-shadow-black leading-tight"
+						style={{
+							WebkitTextStroke: '1px white',
+							paintOrder: 'stroke fill'
+						}}
+					>
+						FAQ
+					</h2>
+					<div className="w-[90%] min-h-[80vh] mx-auto bg-white/10 backdrop-blur-sm shadow-sm border-inset border-4 border-black p-8">
+						<p>meow</p>
+					</div>
+				</div>
+			</div>
+			<Separator />
+			<div className="max-h-96">
 				<Footer />
 			</div>
 		</div>
