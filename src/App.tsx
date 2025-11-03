@@ -3,6 +3,7 @@ import {Footer} from './components/Footer';
 import {NavBar} from './components/NavBar.tsx';
 import {StepCard} from './components/StepCard.tsx';
 import {Separator} from './components/Separator.tsx';
+import {QuestionAnswer} from "./components/QuestionAnswer.tsx";
 
 function App() {
 	return (
@@ -115,7 +116,18 @@ function App() {
 						FAQ
 					</h2>
 					<div className="w-[90%] min-h-[80vh] mx-auto bg-white/10 backdrop-blur-sm shadow-sm border-inset border-4 border-black p-8">
-						<p>meow</p>
+						<QuestionAnswer
+							question="ABC"
+							answer="Foo Bar"
+						/>
+						<QuestionAnswer
+							question="ABC"
+							answer="Foo Bar"
+						/>
+						<QuestionAnswer
+							question="ABC"
+							answer="Foo Bar"
+						/>
 					</div>
 				</div>
 			</div>
