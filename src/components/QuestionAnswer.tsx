@@ -6,7 +6,7 @@ export function QuestionAnswer({ question, answer }: Properties) {
 	return (
 		<div className="mb-8 last:mb-0">
 			<h3
-				className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-3"
+				className="text-xl sm:text-2xl font-bold text-black mb-3"
 				dangerouslySetInnerHTML={{ __html: question }}
 			/>
 			<p
