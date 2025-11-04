@@ -5,7 +5,7 @@ export function SideBar() {
 		<aside
 			className="flex flex-col bg-white space-y-2 max-w-prose p-2 h-screen border-r-4 border-black border-solid bg-repeat bg-center"
 			style={{
-				backgroundImage: 'url(/stud_bright_white.png)',
+				backgroundImage: 'url(/universal_white.png)',
 				backgroundSize: '256px 256px'
 			}}
 		>
