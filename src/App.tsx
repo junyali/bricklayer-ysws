@@ -1,9 +1,9 @@
-import {OrpheusFlag} from './components/OrpheusFlag';
-import {Footer} from './components/Footer';
-import {NavBar} from './components/NavBar.tsx';
-import {StepCard} from './components/StepCard.tsx';
-import {Separator} from './components/Separator.tsx';
-import {QuestionAnswer} from "./components/QuestionAnswer.tsx";
+import { OrpheusFlag } from './components/OrpheusFlag';
+import { Footer } from './components/Footer';
+import { NavBar } from './components/NavBar.tsx';
+import { StepCard } from './components/StepCard.tsx';
+import { Separator } from './components/Separator.tsx';
+import { QuestionAnswer } from "./components/QuestionAnswer.tsx";
 
 function App() {
 	return (
