@@ -7,6 +7,7 @@ import App from './App.tsx'
 import { SideBar } from './components/SideBar.tsx';
 import { DocPage } from './layouts/DocPage.tsx';
 import Guide from './pages/Guide.mdx';
+import Faq from './pages/FAQ.mdx';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,12 @@ const router = createBrowserRouter([
     path: '/guide',
     element: (
       <DocPage Content={ Guide } SideBar={ SideBar } />
+    ),
+  },
+  {
+    path: '/faq',
+    element: (
+      <DocPage Content={ Faq } SideBar={ SideBar } />
     ),
   }
 ])
