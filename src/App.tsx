@@ -4,6 +4,7 @@ import { NavBar } from './components/NavBar.tsx';
 import { StepCard } from './components/StepCard.tsx';
 import { Separator } from './components/Separator.tsx';
 import { FAQ } from './components/FAQ.tsx';
+import {BrickButton} from "./components/BrickButton.tsx";
 
 function App() {
 	return (
@@ -32,6 +33,10 @@ function App() {
 					>
 						Make a game in the Roblox Engine. Get LEGO®!
 					</h2>
+					<BrickButton
+						href="https://forms.fillout.com/t/hZeXivyrgrus"
+						text="RSVP Here!"
+					/>
 					<div className="relative w-full max-w-xl mb-8 mx-auto drop-shadow-xl drop-shadow-black">
 						<img
 							src="/orpheus_lego.png"
@@ -61,14 +66,10 @@ function App() {
 						</div>
 					</div>
 					<div>
-						<a href="/guide" className="flex justify-center">
-							<p
-								className="text-xl sm:text-2xl text-center bg-red-500 text-slate-50 mt-4 mb-8 mx-w-54 px-3 py-4 rounded-sm font-semibold border-black border-4 bg-repeat bg-center"
-								style={{ backgroundImage: 'url(/box_stud_bright_red.png)' }}
-							>
-								Learn how to make a game ➜
-							</p>
-						</a>
+						<BrickButton
+							href="/guide"
+							text="Learn how to make a game ➜"
+						/>
 						<p
 							className="text-center text-2xl text-slate-50 font-bold pt-2 drop-shadow-lg drop-shadow-black"
 							style={{
