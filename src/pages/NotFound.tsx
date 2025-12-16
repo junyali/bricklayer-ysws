@@ -1,4 +1,4 @@
-import { useRouteError, isRouteErrorResponse } from 'react-router';
+import { useRouteError, isRouteErrorResponse, Link } from 'react-router';
 import {OrpheusFlag} from "../components/OrpheusFlag.tsx";
 
 export function NotFound() {
@@ -9,15 +9,15 @@ export function NotFound() {
 			<OrpheusFlag />
 			<div className="flex-grow flex flex-col items-center justify-center px-8">
 				<div className="text-center mt-8">
-					<a
-						href="/"
+					<Link
+						to="/"
 					>
 						<img
 							src="/confused_dinosaur.png"
 							alt=""
 							className="max-w-md mx-auto"
 						></img>
-					</a>
+					</Link>
 					<h1 className="text-6xl md:text-8xl font-extrabold text-red-500 text-shadow-red-900 text-shadow-sm mb-4">
 						{isNotFound ? '404' : 'Oops!'}
 					</h1>
