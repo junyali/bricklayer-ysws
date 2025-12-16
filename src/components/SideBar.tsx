@@ -1,4 +1,4 @@
-import {OrpheusFlag} from "./OrpheusFlag.tsx";
+import { OrpheusFlag } from './OrpheusFlag';
 
 export function SideBar() {
 	return (

@@ -3,15 +3,15 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter } from 'react-router';
 import { RouterProvider } from 'react-router/dom';
 import './index.css'
-import App from './App.tsx'
-import { SideBar } from './components/SideBar.tsx';
-import { DocPage } from './layouts/DocPage.tsx';
+import { App } from './App.tsx'
+import { SideBar } from './components/SideBar';
+import { DocPage } from './layouts/DocPage';
 import Guide from './pages/Guide.mdx';
 import Advanced from './pages/Advanced.mdx';
 import Resources from './pages/Resources.mdx';
 import Submission from './pages/Submission.mdx';
 import Faq from './pages/FAQ.mdx';
-import { NotFound } from "./pages/NotFound.tsx";
+import { NotFound } from './pages/NotFound';
 
 const router = createBrowserRouter([
   {

@@ -1,12 +1,12 @@
 import { OrpheusFlag } from './components/OrpheusFlag';
 import { Footer } from './components/Footer';
-import { NavBar } from './components/NavBar.tsx';
-import { StepCard } from './components/StepCard.tsx';
-import { Separator } from './components/Separator.tsx';
-import { FAQ } from './components/FAQ.tsx';
-import {BrickButton} from "./components/BrickButton.tsx";
+import { NavBar } from './components/NavBar';
+import { StepCard } from './components/StepCard';
+import { Separator } from './components/Separator';
+import { FAQ } from './components/FAQ';
+import { BrickButton } from './components/BrickButton';
 
-function App() {
+export function App() {
 	return (
 		<div>
 			<div>
@@ -128,5 +128,3 @@ function App() {
 		</div>
 	)
 }
-
-export default App
