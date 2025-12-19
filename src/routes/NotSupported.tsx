@@ -1,5 +1,7 @@
 import { Link } from 'react-router';
 import { OrpheusFlag } from '../components/OrpheusFlag.tsx';
+import { Separator } from '../components/Separator';
+import { Footer } from '../components/Footer';
 
 export function NotSupported() {
 	return (
@@ -30,6 +32,8 @@ export function NotSupported() {
 					</p>
 				</div>
 			</div>
+			<Separator />
+			<Footer />
 		</div>
 	);
 }

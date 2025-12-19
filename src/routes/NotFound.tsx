@@ -1,5 +1,7 @@
 import { useRouteError, isRouteErrorResponse, Link } from 'react-router';
 import { OrpheusFlag } from '../components/OrpheusFlag.tsx';
+import { Separator } from '../components/Separator';
+import { Footer } from '../components/Footer';
 
 export function NotFound() {
 	const error = useRouteError();
@@ -32,6 +34,8 @@ export function NotFound() {
 					</p>
 				</div>
 			</div>
+			<Separator />
+			<Footer />
 		</div>
 	);
 }
