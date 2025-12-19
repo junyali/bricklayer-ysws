@@ -25,7 +25,7 @@ export function NotFound() {
 						{isNotFound ? 'Page Not Found': 'Something went wrong!'}
 					</h2>
 					<p className="text-xl text-black text-shadow-white text-shadow-lg mb-8">
-						Looks like this brick doesn't exist in our set! Orpheus is working on it, click him to return back to the main page.
+						Looks like this brick doesn't exist in our set! Orpheus is working on it, click her to return back to the main page.
 					</p>
 				</div>
 			</div>
