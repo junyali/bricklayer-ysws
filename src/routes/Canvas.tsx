@@ -45,8 +45,8 @@ export function Canvas() {
 	const [showPolaroid, setShowPolaroid] = useState(false);
 	const [savedImage, setSavedImage] = useState<string | null>(null);
 
-	const [captureSound] = useState(() => new Audio('/sfx/CaptureSound.wav'));
-	const [successSound] = useState(() => new Audio('/sfx/TaskCompletedSound.wav'));
+	const [captureSound] = useState(() => new Audio('/sfx/CaptureSound.mp3'));
+	const [successSound] = useState(() => new Audio('/sfx/TaskCompletedSound.mp3'));
 
 	useEffect(() => {
 		captureSound.load();
