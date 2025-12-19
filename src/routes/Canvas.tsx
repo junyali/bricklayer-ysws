@@ -168,6 +168,9 @@ export function Canvas() {
 		const dataUrl = canvas.toDataURL('image/png');
 		setSavedImage(dataUrl);
 
+		const captureSound = new Audio('/sfx/CaptureSound.wav');
+		captureSound.play().catch(e => console.error(e));
+
 		setShowFlash(true);
 
 		setTimeout(() => {
@@ -175,6 +178,9 @@ export function Canvas() {
 		}, 300);
 
 		setTimeout(() => {
+			const successSound = new Audio('/sfx/TaskCompletedSound.wav');
+			successSound.play().catch(e => console.error(e));
+
 			setShowPolaroid(true);
 			const url = URL.createObjectURL(blob);
 			const link = document.createElement('a');
