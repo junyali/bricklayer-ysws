@@ -5,8 +5,26 @@ import { ToolButton } from '../components/ToolButton';
 
 type Tool = 'brush' | 'eraser'
 
+const Colours = [
+	{ name: 'Bright Red', value: '#C4281C' },
+	{ name: 'Bright Blue', value: '#0D69AC' },
+	{ name: 'Bright Yellow', value: '#F5CD30' },
+	{ name: 'Bright Green', value: '#4B974B' },
+	{ name: 'Bright Violet', value: '#6B327C' },
+	{ name: 'Bright Orange', value: '#DA8541' },
+	{ name: 'Bright Bluish Green', value: '#008F9C' },
+	{ name: 'Bright Purple', value: '#CD6298' },
+	{ name: "Really Black", value: '#111111' },
+	{ name: 'Black', value: '#1B2A35' },
+	{ name: 'Dark Stone Grey', value: '#635F62' },
+	{ name: 'Medium Stone Grey', value: '#A3A2A5' },
+	{ name: 'Light Stone Grey', value: '#E5E4DF' },
+	{ name: 'Institutional White', value: '#F8F8F8' },
+]
+
 export function Canvas() {
 	const [selectedTool, setSelectedTool] = useState<Tool>('brush');
+	const [selectedColour, setSelectedColour] = useState(Colours[0].value);
 
 	return (
 		<div className="min-h-screen bg-[url(/new_studs.png)] bg-[length:256px_256px] bg-repeat bg-center">
@@ -45,6 +63,27 @@ export function Canvas() {
 						isSelected={selectedTool === 'eraser'}
 						onClick={() => setSelectedTool('eraser')}
 					/>
+				</aside>
+				<aside className="absolute right-0 bg-white border-4 border-r-0 border-black rounded-l-xl shadow-lg p-2 z-10">
+					<div className="grid grid-cols-2 gap-2">
+						{Colours.map((colour) => (
+							<button
+								key={colour.value}
+								onClick={() => setSelectedColour(colour.value)}
+								className={`group relative w-8 h-8 rounded-lg border-1 transition-all hover:scale-110 ${
+									selectedColour === colour.value
+										? 'border-black border-2 scale-110 shadow-lg'
+										: 'border-gray-200'
+								}`}
+								style={{ backgroundColor: colour.value }}
+								title={colour.name}
+							>
+								<span className="absolute right-full mr-4 px-3 py-1 bg-black text-white text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none top-1/2 -translate-y-1/2">
+									{colour.name}
+								</span>
+							</button>
+						))}
+					</div>
 				</aside>
 				<main className="flex-1 flex items-center justify-center p-8">
 					<div
