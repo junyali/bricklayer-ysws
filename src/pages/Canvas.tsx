@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { OrpheusFlag } from '../components/OrpheusFlag';
 import { Footer } from '../components/Footer';
 import { ToolButton } from '../components/ToolButton';
+import { ColourButton } from '../components/ColourButton';
 
 type Tool = 'brush' | 'eraser'
 
@@ -67,21 +68,13 @@ export function Canvas() {
 				<aside className="absolute right-0 bg-white border-4 border-r-0 border-black rounded-l-xl shadow-lg p-2 z-10">
 					<div className="grid grid-cols-2 gap-2">
 						{Colours.map((colour) => (
-							<button
+							<ColourButton
 								key={colour.value}
+								name={colour.name}
+								value={colour.value}
+								isSelected={selectedColour === colour.value}
 								onClick={() => setSelectedColour(colour.value)}
-								className={`group relative w-8 h-8 rounded-lg border-1 transition-all hover:scale-110 ${
-									selectedColour === colour.value
-										? 'border-black border-2 scale-110 shadow-lg'
-										: 'border-gray-200'
-								}`}
-								style={{ backgroundColor: colour.value }}
-								title={colour.name}
-							>
-								<span className="absolute right-full mr-4 px-3 py-1 bg-black text-white text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none top-1/2 -translate-y-1/2">
-									{colour.name}
-								</span>
-							</button>
+							/>
 						))}
 					</div>
 				</aside>
