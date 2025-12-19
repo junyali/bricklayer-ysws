@@ -1,3 +1,4 @@
+import '../styles/Canvas.css';
 import { useState } from 'react';
 import { OrpheusFlag } from '../components/OrpheusFlag.tsx';
 import { Separator } from '../components/Separator';
@@ -40,6 +41,9 @@ export function Canvas() {
 		Array(grid_size).fill(null).map(() => Array(grid_size).fill(null))
 	);
 	const [isDrawing, setIsDrawing] = useState(false);
+	const [showFlash, setShowFlash] = useState(false);
+	const [showPolaroid, setShowPolaroid] = useState(false);
+	const [savedImage, setSavedImage] = useState<string | null>(null);
 
 	const handleCellClick = (row: number, col: number) => {
 		const newGrid = [...grid];
@@ -157,20 +161,65 @@ export function Canvas() {
 
 		const blob = await new Promise<Blob | null>((resolve) => {
 			canvas.toBlob((b) => resolve(b), 'image/png');
-		})
+		});
 
 		if (!blob) return;
 
-		const url = URL.createObjectURL(blob);
-		const link = document.createElement('a');
-		link.href = url;
-		link.download = `bricklayer-canvas-${Date.now()}.png`;
-		link.click();
-		URL.revokeObjectURL(url);
+		const dataUrl = canvas.toDataURL('image/png');
+		setSavedImage(dataUrl);
+
+		setShowFlash(true);
+
+		setTimeout(() => {
+			setShowFlash(false);
+		}, 300);
+
+		setTimeout(() => {
+			setShowPolaroid(true);
+			const url = URL.createObjectURL(blob);
+			const link = document.createElement('a');
+			link.href = url;
+			link.download = `bricklayer-canvas-${Date.now()}.png`;
+			link.click();
+			URL.revokeObjectURL(url);
+		}, 1000);
+	}
+
+	const handleClosePolaroid = () => {
+		setShowPolaroid(false);
+		setSavedImage(null);
 	}
 
 	return (
 		<div className="min-h-screen bg-[url(/new_studs.png)] bg-[length:256px_256px] bg-repeat bg-center">
+			{showFlash && (
+				<div
+					className="fixed inset-0 bg-white z-100 pointer-events-none"
+					style={{
+						animation: 'flash 300ms ease-out forwards'
+					}}
+				/>
+			)}
+			{showPolaroid && savedImage && (
+				<div
+					className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+					onClick={handleClosePolaroid}
+				>
+					<div
+						className="bg-white p-8 pb-32 border-black shadow-2xl max-w-2xl w-full"
+						style={{
+							animation: 'pdrop 500ms ease-out forwards'
+						}}
+						onClick={(e) => e.stopPropagation()}
+					>
+						<img
+							src={savedImage}
+							alt="Canvas"
+							className="w-full h-auto border-2 border-gray-200"
+						/>
+					</div>
+				</div>
+			)}
 			<div>
 				<OrpheusFlag />
 			</div>

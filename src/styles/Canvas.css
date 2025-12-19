@@ -1,0 +1,16 @@
+@keyframes flash {
+	0% { opacity: 0; }
+	10% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+@keyframes pdrop {
+	0% {
+		transform: translateY(-100px) rotate(-5deg);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0) rotate(0deg);
+		opacity: 1;
+	}
+}
