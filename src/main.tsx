@@ -12,6 +12,7 @@ import Resources from './pages/Resources.mdx';
 import Submission from './pages/Submission.mdx';
 import Faq from './pages/FAQ.mdx';
 import { NotFound } from './pages/NotFound';
+import { Canvas } from './pages/Canvas';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
     element: (
       <DocPage Content={ Faq } SideBar={ SideBar } />
     ),
+  },
+  {
+    path: '/canvas',
+    element: <Canvas />
   },
   {
     path: '*',
