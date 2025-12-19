@@ -6,11 +6,7 @@ interface Properties {
 export function DocPage({ Content, SideBar }: Properties) {
 	return (
 		<div
-			className="flex flex-col min-h-screen bg-repeat bg-center"
-			style={{
-				backgroundImage: 'url(/universal_bright_white.png)',
-				backgroundSize: '512px 512px'
-			}}
+			className="flex flex-col min-h-screen bg-[url(/universal_bright_white.png)] bg-[length:512px_512px] bg-repeat bg-center"
 		>
 			<div className="flex flex-1">
 				<aside className="hidden sm:block w-48 fixed h-full">

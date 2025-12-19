@@ -4,11 +4,7 @@ import { OrpheusFlag } from './OrpheusFlag';
 export function SideBar() {
 	return (
 		<aside
-			className="flex flex-col bg-white space-y-2 max-w-prose p-2 h-screen border-r-4 border-black border-solid bg-repeat bg-center"
-			style={{
-				backgroundImage: 'url(/inlet_bright_white.png)',
-				backgroundSize: '256px 256px'
-			}}
+			className="flex flex-col bg-white space-y-2 max-w-prose p-2 h-screen border-r-4 border-black border-solid bg-[url(/inlet_bright_white.png)] bg-[length:256px_256px] bg-repeat bg-center"
 		>
 			<Link
 				to="/"

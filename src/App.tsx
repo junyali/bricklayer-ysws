@@ -15,7 +15,7 @@ export function App() {
 			<div className="fixed top-0 max-w-48 right-4 sm:right-5 md:right-10 z-100">
 				<NavBar />
 			</div>
-			<div className="flex justify-center items-center flex-grow mb-32">
+			<div className="flex flex-grow justify-center items-center mb-32">
 				<div className="mt-16 text-slate-950 mx-8 md:max-w-6xl font-mono">
 					<div className="flex justify-center items-center align-middle mb-8">
 						<img
@@ -100,11 +100,7 @@ export function App() {
 			</div>
 			<Separator />
 			<div
-				className="min-h-screen flex justify-center items-center py-16 bg-repeat bg-center"
-				style={{
-					backgroundImage: 'url(/inlet_bright_white.png)',
-					backgroundSize: '512px 512px'
-				}}
+				className="min-h-screen flex justify-center items-center py-16 bg-[url(/inlet_bright_white.png)] bg-[length:512px_512px] bg-repeat bg-center"
 			>
 				<div className="w-full px-8">
 					<h2
