@@ -3,11 +3,12 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter } from 'react-router';
 import { RouterProvider } from 'react-router/dom';
-import { App } from './routes/App.tsx'
+import { App } from './routes/App'
 import { SideBar } from './components/SideBar';
 import { DocPage } from './layouts/DocPage';
-import { NotFound } from './routes/NotFound.tsx';
-import { Canvas } from './routes/Canvas.tsx';
+import { NotFound } from './routes/NotFound';
+import { Wrapper } from './components/canvas/Wrapper';
+import { NotSupported } from './routes/NotSupported';
 
 /* Markdown Pages*/
 import Guide from './pages/Guide.mdx';
@@ -53,7 +54,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/canvas',
-    element: <Canvas />
+    element: <Wrapper />
+  },
+  {
+    path: '/notsupported',
+    element: <NotSupported />
   },
   {
     path: '*',
