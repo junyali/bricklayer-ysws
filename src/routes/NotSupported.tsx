@@ -18,7 +18,7 @@ export function NotSupported() {
 						<img
 							src="/confused_dinosaur.png"
 							alt=""
-							className="w-full"
+							className="w-full transition-transform duration-300 hover:drop-shadow-lg drop-shadow-black animate-[rock_2s_ease-in-out_infinite]"
 						></img>
 					</Link>
 					<h1 className="text-6xl md:text-8xl font-extrabold text-red-500 text-shadow-red-900 text-shadow-sm mb-4">
