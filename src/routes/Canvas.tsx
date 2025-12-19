@@ -24,8 +24,8 @@ const Colours = [
 	{ name: 'Institutional White', value: '#F8F8F8' },
 ]
 
-const grid_size = 16;
-const cell_size = 64;
+const grid_size = 32;
+const cell_size = 32;
 
 type GridCell = string | null;
 
@@ -60,6 +60,28 @@ export function Canvas() {
 	}
 
 	const handleMouseUp = () => {
+		setIsDrawing(false);
+	}
+
+	const handleTouchStart = (row: number, col: number, e: React.TouchEvent) => {
+		e.preventDefault();
+		setIsDrawing(true);
+		handleCellClick(row, col);
+	}
+
+	const handleTouchMove = (e: React.TouchEvent) => {
+		if (!isDrawing) return;
+		e.preventDefault();
+		const touch = e.touches[0]
+		const element = document.elementFromPoint(touch.clientX, touch.clientY);
+		if (element && element.hasAttribute('data-cell')) {
+			const row = parseInt(element.getAttribute('data-row') || '0');
+			const col = parseInt(element.getAttribute('data-col') || '0');
+			handleCellClick(row, col);
+		}
+	}
+
+	const handleTouchEnd = () => {
 		setIsDrawing(false);
 	}
 
@@ -116,16 +138,19 @@ export function Canvas() {
 				</aside>
 				<main className="flex-1 flex items-center justify-center p-8">
 					<div
-						className="bg-[url(/universal_bright_white.png)] bg-[length:256px_256px] bg-repeat bg-center border-4 border-black rounded-lg shadow-2xl overflow-hidden"
+						className="bg-[url(/universal_bright_white.png)] bg-[length:256px_256px] bg-repeat bg-center border-4 border-black rounded-lg shadow-2xl overflow-hidden aspect-square"
 						style={{
-							width: `${grid_size * cell_size}`,
-							height: `${grid_size * cell_size}`,
+							width: `min(${grid_size * cell_size}px, calc(100vw - 16rem))`,
+							maxWidth: `${grid_size * cell_size}`,
 							display: 'grid',
-							gridTemplateColumns: `repeat(${grid_size}, ${cell_size}px)`,
-							gridTemplateRows: `repeat(${grid_size}, ${cell_size}px)`
+							gridTemplateColumns: `repeat(${grid_size}, 1fr)`,
+							gridTemplateRows: `repeat(${grid_size}, 1fr)`,
+							touchAction: 'none'
 						}}
 						onMouseUp={handleMouseUp}
 						onMouseLeave={handleMouseUp}
+						onTouchEnd={handleTouchEnd}
+						onTouchMove={handleTouchMove}
 						onDragStart={(e) => e.preventDefault()}
 					>
 						{grid.map((row, rowIndex) =>
@@ -133,6 +158,9 @@ export function Canvas() {
 								<div
 									key={`${rowIndex}-${colIndex}`}
 									className="cursor-crosshair select-none"
+									data-cell="true"
+									data-row={rowIndex}
+									data-col={colIndex}
 									style={{
 										backgroundColor: cell || 'transparent',
 										backgroundImage: cell ? 'url(/studalpha_1x1.png)' : 'none',
@@ -142,6 +170,7 @@ export function Canvas() {
 									}}
 									onMouseDown={(e) => handleMouseDown(rowIndex, colIndex, e)}
 									onMouseEnter={() => handleMouseEnter(rowIndex, colIndex)}
+									onTouchStart={(e) => handleTouchStart(rowIndex, colIndex, e)}
 									onDragStart={(e) => e.preventDefault()}
 								/>
 							))
