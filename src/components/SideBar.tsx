@@ -8,6 +8,7 @@ export function SideBar() {
 		>
 			<Link
 				to="/"
+				className="hover:scale-110 duration-300 transition-transform"
 			>
 				<img
 					src="/bricklayer-logo.png"

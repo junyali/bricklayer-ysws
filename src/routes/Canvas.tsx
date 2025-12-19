@@ -1,5 +1,6 @@
 import '../styles/Canvas.css';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router';
 import { OrpheusFlag } from '../components/OrpheusFlag.tsx';
 import { Separator } from '../components/Separator';
 import { Footer } from '../components/Footer.tsx';
@@ -252,13 +253,18 @@ export function Canvas() {
 			</div>
 			<div className="inline justify-center items-center mt-4 font-extrabold">
 				<div className="flex justify-center items-center align-middle mb-8">
-					<img
-						src="/bricklayer-logo.png"
-						alt=""
+					<Link
+						to="/"
 						className="w-full max-w-xl"
-					></img>
+					>
+						<img
+							src="/bricklayer-logo.png"
+							alt=""
+							className="hover:scale-110 duration-300 transition-transform"
+						></img>
+					</Link>
 					<h1
-						className="text-6xl text-red-500/80 drop-shadow-black"
+						className="text-6xl text-red-500/80 drop-shadow-black drop-shadow-lg"
 						style={{
 							WebkitTextStroke: '1px white',
 							paintOrder: 'stroke fill'
