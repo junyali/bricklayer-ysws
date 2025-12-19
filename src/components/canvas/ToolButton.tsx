@@ -9,7 +9,7 @@ export function ToolButton({ icon, label, isSelected, onClick }: Properties) {
 	return (
 		<button
 			onClick={onClick}
-			className={`group relative w-12 h-12 flex items-center justify-center rounded-lg border-1 transition-all ${
+			className={`group relative w-12 h-12 flex items-center justify-center rounded-lg border transition-all ${
 				isSelected
 					? 'bg-gray-500/20 border-gray-700 text-white'
 					: 'bg-white border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400'

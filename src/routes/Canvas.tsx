@@ -96,6 +96,78 @@ export function Canvas() {
 		setIsDrawing(false);
 	}
 
+	const handleSave = async () => {
+		const canvas = document.createElement('canvas');
+		const ctx = canvas.getContext('2d');
+		if (!ctx) return;
+
+		const imageSize = grid_size * cell_size;
+		canvas.width = imageSize;
+		canvas.height = imageSize;
+
+		const bgImage = new Image();
+		bgImage.src = '/universal_bright_white.png';
+
+		await new Promise((resolve) => {
+			bgImage.onload = resolve;
+		});
+
+		const tempCanvas = document.createElement('canvas');
+		const tempCtx = tempCanvas.getContext('2d');
+		if (!tempCtx) return;
+
+		tempCanvas.width = 256;
+		tempCanvas.height = 256;
+		tempCtx.drawImage(bgImage, 0, 0, 256, 256);
+
+		const pattern = ctx.createPattern(tempCanvas, 'repeat');
+		if (pattern) {
+			ctx.fillStyle = pattern;
+			ctx.fillRect(0, 0, imageSize, imageSize)
+		}
+
+		const studImage = new Image();
+		const inletImage = new Image();
+		studImage.src = '/studalpha_1x1.png';
+		inletImage.src = '/inletalpha_1x1.png';
+
+		await Promise.all([
+			new Promise((resolve) => { studImage.onload = resolve; }),
+			new Promise((resolve) => { inletImage.onload = resolve; })
+		]);
+
+		for (let row = 0; row < grid_size; row++) {
+			for (let col = 0; col < grid_size; col++) {
+				const cell = grid[row][col];
+				if (cell && cell.colour) {
+					const x = col * cell_size;
+					const y = row * cell_size;
+
+					ctx.fillStyle = cell.colour;
+					ctx.fillRect(x, y, cell_size, cell_size);
+
+					ctx.globalCompositeOperation = 'multiply';
+					const image = cell.studType === 'stud' ? studImage : inletImage;
+					ctx.drawImage(image, x, y, cell_size, cell_size);
+					ctx.globalCompositeOperation = 'source-over';
+				}
+			}
+		}
+
+		const blob = await new Promise<Blob | null>((resolve) => {
+			canvas.toBlob((b) => resolve(b), 'image/png');
+		})
+
+		if (!blob) return;
+
+		const url = URL.createObjectURL(blob);
+		const link = document.createElement('a');
+		link.href = url;
+		link.download = `bricklayer-canvas-${Date.now()}.png`;
+		link.click();
+		URL.revokeObjectURL(url);
+	}
+
 	return (
 		<div className="min-h-screen bg-[url(/new_studs.png)] bg-[length:256px_256px] bg-repeat bg-center">
 			<div>
@@ -139,6 +211,21 @@ export function Canvas() {
 						isSelected={selectedTool === 'trowel'}
 						onClick={() => setSelectedTool('trowel')}
 					/>
+					<div className="border-t-2 border-gray-300 my-2"></div>
+					<button
+						onClick={handleSave}
+						className="group relative w-12 h-12 flex items-center justify-center rounded-lg border transition-all bg-white border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400"
+						title="Save"
+					>
+						<img
+							src="/canvas/save.png"
+							alt="Save"
+							className="w-8 h-8 object-contain"
+						/>
+						<span className="absolute left-full ml-4 px-3 py-1 bg-black text-white text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+							Save your masterpiece!
+						</span>
+					</button>
 				</aside>
 				<aside className="absolute right-0 bg-white border-4 border-r-0 border-black rounded-l-xl shadow-lg p-2 z-10">
 					<div className="grid grid-cols-2 gap-2">
