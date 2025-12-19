@@ -3,6 +3,7 @@ import { OrpheusFlag } from '../components/OrpheusFlag.tsx';
 import { Footer } from '../components/Footer.tsx';
 import { ToolButton } from '../components/canvas/ToolButton.tsx';
 import { ColourButton } from '../components/canvas/ColourButton.tsx';
+import * as React from "react";
 
 type Tool = 'brush' | 'eraser'
 
@@ -23,7 +24,7 @@ const Colours = [
 	{ name: 'Institutional White', value: '#F8F8F8' },
 ]
 
-const grid_size = 10;
+const grid_size = 16;
 const cell_size = 64;
 
 type GridCell = string | null;
@@ -46,7 +47,8 @@ export function Canvas() {
 		setGrid(newGrid)
 	}
 
-	const handleMouseDown = (row: number, col: number) => {
+	const handleMouseDown = (row: number, col: number, e: React.MouseEvent) => {
+		e.preventDefault()
 		setIsDrawing(true);
 		handleCellClick(row, col);
 	}
@@ -114,30 +116,33 @@ export function Canvas() {
 				</aside>
 				<main className="flex-1 flex items-center justify-center p-8">
 					<div
-						className="bg-[url(/universal_bright_white.png)] bg-[length:256px_256px] bg-repeat bg-center border-4 border-black rounded-lg shadow-2xl"
+						className="bg-[url(/universal_bright_white.png)] bg-[length:256px_256px] bg-repeat bg-center border-4 border-black rounded-lg shadow-2xl overflow-hidden"
 						style={{
-							width: '640px',
-							height: '640px',
+							width: `${grid_size * cell_size}`,
+							height: `${grid_size * cell_size}`,
 							display: 'grid',
 							gridTemplateColumns: `repeat(${grid_size}, ${cell_size}px)`,
 							gridTemplateRows: `repeat(${grid_size}, ${cell_size}px)`
 						}}
 						onMouseUp={handleMouseUp}
 						onMouseLeave={handleMouseUp}
+						onDragStart={(e) => e.preventDefault()}
 					>
 						{grid.map((row, rowIndex) =>
 							row.map((cell, colIndex) => (
 								<div
 									key={`${rowIndex}-${colIndex}`}
-									className="cursor-crosshair"
+									className="cursor-crosshair select-none"
 									style={{
 										backgroundColor: cell || 'transparent',
 										backgroundImage: cell ? 'url(/studalpha_1x1.png)' : 'none',
 										backgroundSize: 'cover',
-										backgroundPosition: 'center'
+										backgroundPosition: 'center',
+										backgroundBlendMode: 'multiply'
 									}}
-									onMouseDown={() => handleMouseDown(rowIndex, colIndex)}
+									onMouseDown={(e) => handleMouseDown(rowIndex, colIndex, e)}
 									onMouseEnter={() => handleMouseEnter(rowIndex, colIndex)}
+									onDragStart={(e) => e.preventDefault()}
 								/>
 							))
 						)}
