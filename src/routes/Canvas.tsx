@@ -1,5 +1,5 @@
 import '../styles/Canvas.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { OrpheusFlag } from '../components/OrpheusFlag.tsx';
 import { Separator } from '../components/Separator';
 import { Footer } from '../components/Footer.tsx';
@@ -44,6 +44,14 @@ export function Canvas() {
 	const [showFlash, setShowFlash] = useState(false);
 	const [showPolaroid, setShowPolaroid] = useState(false);
 	const [savedImage, setSavedImage] = useState<string | null>(null);
+
+	const [captureSound] = useState(() => new Audio('/sfx/CaptureSound.wav'));
+	const [successSound] = useState(() => new Audio('/sfx/TaskCompletedSound.wav'));
+
+	useEffect(() => {
+		captureSound.load();
+		successSound.load();
+	}, [captureSound, successSound]);
 
 	const handleCellClick = (row: number, col: number) => {
 		const newGrid = [...grid];
@@ -168,7 +176,7 @@ export function Canvas() {
 		const dataUrl = canvas.toDataURL('image/png');
 		setSavedImage(dataUrl);
 
-		const captureSound = new Audio('/sfx/CaptureSound.wav');
+		captureSound.currentTime = 0;
 		captureSound.play().catch(e => console.error(e));
 
 		setShowFlash(true);
@@ -178,7 +186,7 @@ export function Canvas() {
 		}, 300);
 
 		setTimeout(() => {
-			const successSound = new Audio('/sfx/TaskCompletedSound.wav');
+			successSound.currentTime = 0;
 			successSound.play().catch(e => console.error(e));
 
 			setShowPolaroid(true);
