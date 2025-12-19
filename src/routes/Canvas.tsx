@@ -5,7 +5,7 @@ import { ToolButton } from '../components/canvas/ToolButton.tsx';
 import { ColourButton } from '../components/canvas/ColourButton.tsx';
 import * as React from "react";
 
-type Tool = 'brush' | 'eraser'
+type Tool = 'brush' | 'eraser' | 'trowel'
 
 const Colours = [
 	{ name: 'Bright Red', value: '#C4281C' },
@@ -27,7 +27,10 @@ const Colours = [
 const grid_size = 32;
 const cell_size = 32;
 
-type GridCell = string | null;
+type GridCell = {
+	colour: string | null;
+	studType: 'stud' | 'inlet';
+} | null;
 
 export function Canvas() {
 	const [selectedTool, setSelectedTool] = useState<Tool>('brush');
@@ -40,9 +43,17 @@ export function Canvas() {
 	const handleCellClick = (row: number, col: number) => {
 		const newGrid = [...grid];
 		if (selectedTool === 'brush') {
-			newGrid[row][col] = selectedColour;
-		} else {
+			newGrid[row][col] = { colour: selectedColour, studType: 'stud' };
+		} else if (selectedTool === 'eraser')  {
 			newGrid[row][col] = null;
+		} else if (selectedTool === 'trowel') {
+			const currentCell = newGrid[row][col];
+			if (currentCell) {
+				newGrid[row][col] = {
+					colour: currentCell.colour,
+					studType: currentCell.studType === 'stud' ? 'inlet' : 'stud'
+				};
+			}
 		}
 		setGrid(newGrid)
 	}
@@ -122,6 +133,12 @@ export function Canvas() {
 						isSelected={selectedTool === 'eraser'}
 						onClick={() => setSelectedTool('eraser')}
 					/>
+					<ToolButton
+						icon="/canvas/trowel.png"
+						label="Trowel"
+						isSelected={selectedTool === 'trowel'}
+						onClick={() => setSelectedTool('trowel')}
+					/>
 				</aside>
 				<aside className="absolute right-0 bg-white border-4 border-r-0 border-black rounded-l-xl shadow-lg p-2 z-10">
 					<div className="grid grid-cols-2 gap-2">
@@ -162,8 +179,10 @@ export function Canvas() {
 									data-row={rowIndex}
 									data-col={colIndex}
 									style={{
-										backgroundColor: cell || 'transparent',
-										backgroundImage: cell ? 'url(/studalpha_1x1.png)' : 'none',
+										backgroundColor: cell?.colour || 'transparent',
+										backgroundImage: cell
+											? `url(/${cell.studType === 'stud' ? 'stud' : 'inlet'}alpha_1x1.png)`
+											: 'none',
 										backgroundSize: 'cover',
 										backgroundPosition: 'center',
 										backgroundBlendMode: 'multiply'
