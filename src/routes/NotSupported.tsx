@@ -4,8 +4,10 @@ import { OrpheusFlag } from '../components/OrpheusFlag.tsx';
 export function NotSupported() {
 	return (
 		<div className="min-h-screen flex flex-col">
-			<OrpheusFlag />
-			<div className="flex-grow flex flex-col items-center justify-center px-8 bg-[url(/new_studs.png)] bg-[length:512px_512px] bg-repeat bg-center">
+			<div className="flex-grow items-center justify-center px-8 bg-[url(/new_studs.png)] bg-[length:512px_512px] bg-repeat bg-center">
+				<div>
+					<OrpheusFlag />
+				</div>
 				<div className="text-center mt-8">
 					<Link
 						to="/"

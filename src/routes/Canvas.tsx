@@ -219,7 +219,7 @@ export function Canvas() {
 	}
 
 	return (
-		<div className="min-h-screen bg-[url(/new_studs.png)] bg-[length:256px_256px] bg-repeat bg-center">
+		<div className="min-h-screen flex flex-col bg-[url(/new_studs.png)] bg-[length:256px_256px] bg-repeat bg-center">
 			{showFlash && (
 				<div
 					className="fixed inset-0 bg-white z-100 pointer-events-none"
@@ -248,124 +248,126 @@ export function Canvas() {
 					</div>
 				</div>
 			)}
-			<div>
-				<OrpheusFlag />
-			</div>
-			<div className="inline justify-center items-center mt-4 font-extrabold">
-				<div className="flex justify-center items-center align-middle mb-8">
-					<Link
-						to="/"
-						className="w-full max-w-xl"
-					>
-						<img
-							src="/bricklayer-logo.png"
-							alt=""
-							className="hover:scale-110 duration-300 transition-transform"
-						></img>
-					</Link>
-					<h1
-						className="text-6xl text-red-500/80 drop-shadow-black drop-shadow-lg"
-						style={{
-							WebkitTextStroke: '1px white',
-							paintOrder: 'stroke fill'
-						}}
-					>
-						Canvas
-					</h1>
+			<div className="flex-grow">
+				<div>
+					<OrpheusFlag />
 				</div>
-			</div>
-			<div className="flex flex-1 relative items-center">
-				<aside className="absolute left-0 bg-white border-4 border-l-0 border-black rounded-r-xl shadow-lg p-2 space-y-1 z-10">
-					<ToolButton
-						icon="/canvas/paintbrush.png"
-						label="Brush"
-						isSelected={selectedTool === 'brush'}
-						onClick={() => handleToolChange('brush')}
-					/>
-					<ToolButton
-						icon="/canvas/eraser.png"
-						label="Eraser"
-						isSelected={selectedTool === 'eraser'}
-						onClick={() => handleToolChange('eraser')}
-					/>
-					<ToolButton
-						icon="/canvas/trowel.png"
-						label="Trowel"
-						isSelected={selectedTool === 'trowel'}
-						onClick={() => handleToolChange('trowel')}
-					/>
-					<div className="border-t-2 border-gray-300 my-2"></div>
-					<button
-						onClick={handleSave}
-						className="group relative w-12 h-12 flex items-center justify-center rounded-lg border transition-all bg-white border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400"
-						title="Save"
-					>
-						<img
-							src="/canvas/save.png"
-							alt="Save"
-							className="w-8 h-8 object-contain"
+				<div className="inline justify-center items-center mt-4 font-extrabold">
+					<div className="flex justify-center items-center align-middle mb-8">
+						<Link
+							to="/"
+							className="w-full max-w-xl"
+						>
+							<img
+								src="/bricklayer-logo.png"
+								alt=""
+								className="hover:scale-110 duration-300 transition-transform"
+							></img>
+						</Link>
+						<h1
+							className="text-6xl text-red-500/80 drop-shadow-black drop-shadow-lg"
+							style={{
+								WebkitTextStroke: '1px white',
+								paintOrder: 'stroke fill'
+							}}
+						>
+							Canvas
+						</h1>
+					</div>
+				</div>
+				<div className="flex flex-1 relative items-center">
+					<aside className="absolute left-0 bg-white border-4 border-l-0 border-black rounded-r-xl shadow-lg p-2 space-y-1 z-10">
+						<ToolButton
+							icon="/canvas/paintbrush.png"
+							label="Brush"
+							isSelected={selectedTool === 'brush'}
+							onClick={() => handleToolChange('brush')}
 						/>
-						<span className="absolute left-full ml-4 px-3 py-1 bg-black text-white text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+						<ToolButton
+							icon="/canvas/eraser.png"
+							label="Eraser"
+							isSelected={selectedTool === 'eraser'}
+							onClick={() => handleToolChange('eraser')}
+						/>
+						<ToolButton
+							icon="/canvas/trowel.png"
+							label="Trowel"
+							isSelected={selectedTool === 'trowel'}
+							onClick={() => handleToolChange('trowel')}
+						/>
+						<div className="border-t-2 border-gray-300 my-2"></div>
+						<button
+							onClick={handleSave}
+							className="group relative w-12 h-12 flex items-center justify-center rounded-lg border transition-all bg-white border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400"
+							title="Save"
+						>
+							<img
+								src="/canvas/save.png"
+								alt="Save"
+								className="w-8 h-8 object-contain"
+							/>
+							<span className="absolute left-full ml-4 px-3 py-1 bg-black text-white text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
 							Save your masterpiece!
 						</span>
-					</button>
-				</aside>
-				<aside className="absolute right-0 bg-white border-4 border-r-0 border-black rounded-l-xl shadow-lg p-2 z-10">
-					<div className="grid grid-cols-2 gap-2">
-						{Colours.map((colour) => (
-							<ColourButton
-								key={colour.value}
-								name={colour.name}
-								value={colour.value}
-								isSelected={selectedColour === colour.value}
-								onClick={() => handleColourChange(colour.value)}
-							/>
-						))}
-					</div>
-				</aside>
-				<main className="flex-1 flex items-center justify-center p-8">
-					<div
-						className="bg-[url(/universal_bright_white.png)] bg-[length:256px_256px] bg-repeat bg-center border-4 border-black rounded-lg shadow-2xl overflow-hidden aspect-square"
-						style={{
-							width: `min(${grid_size * cell_size}px, calc(100vw - 16rem))`,
-							maxWidth: `${grid_size * cell_size}`,
-							display: 'grid',
-							gridTemplateColumns: `repeat(${grid_size}, 1fr)`,
-							gridTemplateRows: `repeat(${grid_size}, 1fr)`,
-							touchAction: 'none'
-						}}
-						onMouseUp={handleMouseUp}
-						onMouseLeave={handleMouseUp}
-						onTouchEnd={handleTouchEnd}
-						onTouchMove={handleTouchMove}
-						onDragStart={(e) => e.preventDefault()}
-					>
-						{grid.map((row, rowIndex) =>
-							row.map((cell, colIndex) => (
-								<div
-									key={`${rowIndex}-${colIndex}`}
-									className="cursor-crosshair select-none"
-									data-cell="true"
-									data-row={rowIndex}
-									data-col={colIndex}
-									style={{
-										backgroundColor: cell?.colour || 'transparent',
-										backgroundImage: cell
-											? `url(/${cell.studType === 'stud' ? 'stud' : 'inlet'}alpha_1x1.png)`
-											: 'none',
-										backgroundSize: 'cover',
-										backgroundPosition: 'center',
-										backgroundBlendMode: 'multiply'
-									}}
-									onMouseDown={(e) => handleMouseDown(rowIndex, colIndex, e)}
-									onMouseEnter={() => handleMouseEnter(rowIndex, colIndex)}
-									onTouchStart={(e) => handleTouchStart(rowIndex, colIndex, e)}
-									onDragStart={(e) => e.preventDefault()}
+						</button>
+					</aside>
+					<aside className="absolute right-0 bg-white border-4 border-r-0 border-black rounded-l-xl shadow-lg p-2 z-10">
+						<div className="grid grid-cols-2 gap-2">
+							{Colours.map((colour) => (
+								<ColourButton
+									key={colour.value}
+									name={colour.name}
+									value={colour.value}
+									isSelected={selectedColour === colour.value}
+									onClick={() => handleColourChange(colour.value)}
 								/>
-							))
-						)}
-					</div>
-				</main>
+							))}
+						</div>
+					</aside>
+					<main className="flex-1 flex items-center justify-center p-8">
+						<div
+							className="bg-[url(/universal_bright_white.png)] bg-[length:256px_256px] bg-repeat bg-center border-4 border-black rounded-lg shadow-2xl overflow-hidden aspect-square"
+							style={{
+								width: `min(${grid_size * cell_size}px, calc(100vw - 16rem))`,
+								maxWidth: `${grid_size * cell_size}`,
+								display: 'grid',
+								gridTemplateColumns: `repeat(${grid_size}, 1fr)`,
+								gridTemplateRows: `repeat(${grid_size}, 1fr)`,
+								touchAction: 'none'
+							}}
+							onMouseUp={handleMouseUp}
+							onMouseLeave={handleMouseUp}
+							onTouchEnd={handleTouchEnd}
+							onTouchMove={handleTouchMove}
+							onDragStart={(e) => e.preventDefault()}
+						>
+							{grid.map((row, rowIndex) =>
+								row.map((cell, colIndex) => (
+									<div
+										key={`${rowIndex}-${colIndex}`}
+										className="cursor-crosshair select-none"
+										data-cell="true"
+										data-row={rowIndex}
+										data-col={colIndex}
+										style={{
+											backgroundColor: cell?.colour || 'transparent',
+											backgroundImage: cell
+												? `url(/${cell.studType === 'stud' ? 'stud' : 'inlet'}alpha_1x1.png)`
+												: 'none',
+											backgroundSize: 'cover',
+											backgroundPosition: 'center',
+											backgroundBlendMode: 'multiply'
+										}}
+										onMouseDown={(e) => handleMouseDown(rowIndex, colIndex, e)}
+										onMouseEnter={() => handleMouseEnter(rowIndex, colIndex)}
+										onTouchStart={(e) => handleTouchStart(rowIndex, colIndex, e)}
+										onDragStart={(e) => e.preventDefault()}
+									/>
+								))
+							)}
+						</div>
+					</main>
+				</div>
 			</div>
 			<Separator />
 			<Footer />
