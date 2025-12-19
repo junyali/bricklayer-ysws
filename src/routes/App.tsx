@@ -1,10 +1,10 @@
-import { OrpheusFlag } from './components/OrpheusFlag';
-import { Footer } from './components/Footer';
-import { NavBar } from './components/NavBar';
-import { StepCard } from './components/StepCard';
-import { Separator } from './components/Separator';
-import { FAQ } from './components/FAQ';
-import { BrickButton } from './components/BrickButton';
+import { OrpheusFlag } from '../components/OrpheusFlag.tsx';
+import { Footer } from '../components/Footer.tsx';
+import { NavBar } from '../components/navigation/NavBar.tsx';
+import { StepCard } from '../components/StepCard.tsx';
+import { Separator } from '../components/Separator.tsx';
+import { FAQ } from '../components/FAQ.tsx';
+import { BrickButton } from '../components/BrickButton.tsx';
 
 export function App() {
 	return (

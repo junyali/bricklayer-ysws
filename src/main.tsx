@@ -1,18 +1,20 @@
+import './index.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter } from 'react-router';
 import { RouterProvider } from 'react-router/dom';
-import './index.css'
-import { App } from './App.tsx'
+import { App } from './routes/App.tsx'
 import { SideBar } from './components/SideBar';
 import { DocPage } from './layouts/DocPage';
+import { NotFound } from './routes/NotFound.tsx';
+import { Canvas } from './routes/Canvas.tsx';
+
+/* Markdown Pages*/
 import Guide from './pages/Guide.mdx';
 import Advanced from './pages/Advanced.mdx';
 import Resources from './pages/Resources.mdx';
 import Submission from './pages/Submission.mdx';
 import Faq from './pages/FAQ.mdx';
-import { NotFound } from './pages/NotFound';
-import { Canvas } from './pages/Canvas';
 
 const router = createBrowserRouter([
   {

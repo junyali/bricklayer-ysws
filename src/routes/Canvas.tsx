@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { OrpheusFlag } from '../components/OrpheusFlag';
-import { Footer } from '../components/Footer';
-import { ToolButton } from '../components/ToolButton';
-import { ColourButton } from '../components/ColourButton';
+import { OrpheusFlag } from '../components/OrpheusFlag.tsx';
+import { Footer } from '../components/Footer.tsx';
+import { ToolButton } from '../components/canvas/ToolButton.tsx';
+import { ColourButton } from '../components/canvas/ColourButton.tsx';
 
 type Tool = 'brush' | 'eraser'
 

@@ -1,5 +1,5 @@
 import { useRouteError, isRouteErrorResponse, Link } from 'react-router';
-import { OrpheusFlag } from '../components/OrpheusFlag';
+import { OrpheusFlag } from '../components/OrpheusFlag.tsx';
 
 export function NotFound() {
 	const error = useRouteError();
