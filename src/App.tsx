@@ -37,18 +37,11 @@ export function App() {
 						href="https://forms.fillout.com/t/hZeXivyrgrus"
 						text="RSVP Here!"
 					/>
-					<div className="relative w-full max-w-xl mb-8 mx-auto">
-						<div className="p-12 bg-[url(/wood_planks_dark_brown.png)] bg-[length:256px_256px] bg-repeat bg-center shadow-2xl shadow-amber-950">
-							<div className="relative bg-white p-3">
-								<div className="relative inset-shadow-xl inset-shadow-black">
-									<img
-										src="/orpheus_lego.png"
-										alt="Dinosaur that really wants some LEGO"
-									/>
-									<div className="absolute inset-0 inset-shadow-xl pointer-events-none"></div>
-								</div>
-							</div>
-						</div>
+					<div className="relative w-full max-w-xl mb-8 mx-auto drop-shadow-xl drop-shadow-black">
+						<img
+							src="/orpheus_lego.png"
+							alt=""
+						></img>
 					</div>
 					<div>
 						<div className="flex flex-col lg:flex-row items-center text-center justify-center space-y-8 lg:space-y-0 lg:space-x-4 xl:space-x-8 py-6 text-lg sm:text-3xl font-bold whitespace-nowrap">
