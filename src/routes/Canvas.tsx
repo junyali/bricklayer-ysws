@@ -23,9 +23,43 @@ const Colours = [
 	{ name: 'Institutional White', value: '#F8F8F8' },
 ]
 
+const grid_size = 10;
+const cell_size = 64;
+
+type GridCell = string | null;
+
 export function Canvas() {
 	const [selectedTool, setSelectedTool] = useState<Tool>('brush');
 	const [selectedColour, setSelectedColour] = useState(Colours[0].value);
+	const [grid, setGrid] = useState<GridCell[][]>(
+		Array(grid_size).fill(null).map(() => Array(grid_size).fill(null))
+	);
+	const [isDrawing, setIsDrawing] = useState(false);
+
+	const handleCellClick = (row: number, col: number) => {
+		const newGrid = [...grid];
+		if (selectedTool === 'brush') {
+			newGrid[row][col] = selectedColour;
+		} else {
+			newGrid[row][col] = null;
+		}
+		setGrid(newGrid)
+	}
+
+	const handleMouseDown = (row: number, col: number) => {
+		setIsDrawing(true);
+		handleCellClick(row, col);
+	}
+
+	const handleMouseEnter = (row: number, col: number) => {
+		if (isDrawing) {
+			handleCellClick(row, col);
+		}
+	}
+
+	const handleMouseUp = () => {
+		setIsDrawing(false);
+	}
 
 	return (
 		<div className="min-h-screen bg-[url(/new_studs.png)] bg-[length:256px_256px] bg-repeat bg-center">
@@ -83,10 +117,30 @@ export function Canvas() {
 						className="bg-[url(/universal_bright_white.png)] bg-[length:256px_256px] bg-repeat bg-center border-4 border-black rounded-lg shadow-2xl"
 						style={{
 							width: '640px',
-							height: '640px'
+							height: '640px',
+							display: 'grid',
+							gridTemplateColumns: `repeat(${grid_size}, ${cell_size}px)`,
+							gridTemplateRows: `repeat(${grid_size}, ${cell_size}px)`
 						}}
+						onMouseUp={handleMouseUp}
+						onMouseLeave={handleMouseUp}
 					>
-
+						{grid.map((row, rowIndex) =>
+							row.map((cell, colIndex) => (
+								<div
+									key={`${rowIndex}-${colIndex}`}
+									className="cursor-crosshair"
+									style={{
+										backgroundColor: cell || 'transparent',
+										backgroundImage: cell ? 'url(/studalpha_1x1.png)' : 'none',
+										backgroundSize: 'cover',
+										backgroundPosition: 'center'
+									}}
+									onMouseDown={() => handleMouseDown(rowIndex, colIndex)}
+									onMouseEnter={() => handleMouseEnter(rowIndex, colIndex)}
+								/>
+							))
+						)}
 					</div>
 				</main>
 			</div>
