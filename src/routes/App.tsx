@@ -1,3 +1,4 @@
+import '../styles/App.css';
 import { OrpheusFlag } from '../components/OrpheusFlag.tsx';
 import { Footer } from '../components/Footer.tsx';
 import { NavBar } from '../components/navigation/NavBar.tsx';
