@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { OrpheusFlag } from '../components/OrpheusFlag.tsx';
+import { Separator } from '../components/Separator';
 import { Footer } from '../components/Footer.tsx';
 import { ToolButton } from '../components/canvas/ToolButton.tsx';
 import { ColourButton } from '../components/canvas/ColourButton.tsx';
@@ -284,6 +285,7 @@ export function Canvas() {
 					</div>
 				</main>
 			</div>
+			<Separator />
 			<Footer />
 		</div>
 	);
