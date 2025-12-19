@@ -47,6 +47,7 @@ export function Canvas() {
 
 	const [captureSound] = useState(() => new Audio('/sfx/CaptureSound.mp3'));
 	const [successSound] = useState(() => new Audio('/sfx/TaskCompletedSound.mp3'));
+	const [bassSound] = useState(() => new Audio('/sfx/Bass.mp3'));
 
 	useEffect(() => {
 		captureSound.load();
@@ -69,6 +70,18 @@ export function Canvas() {
 			}
 		}
 		setGrid(newGrid)
+	}
+
+	const handleToolChange = (tool: Tool) => {
+		setSelectedTool(tool);
+		bassSound.currentTime = 0;
+		bassSound.play().catch(e => console.error(e));
+	}
+
+	const handleColourChange = (colour: string) => {
+		setSelectedColour(colour);
+		bassSound.currentTime = 0;
+		bassSound.play().catch(e => console.error(e));
 	}
 
 	const handleMouseDown = (row: number, col: number, e: React.MouseEvent) => {
@@ -261,19 +274,19 @@ export function Canvas() {
 						icon="/canvas/paintbrush.png"
 						label="Brush"
 						isSelected={selectedTool === 'brush'}
-						onClick={() => setSelectedTool('brush')}
+						onClick={() => handleToolChange('brush')}
 					/>
 					<ToolButton
 						icon="/canvas/eraser.png"
 						label="Eraser"
 						isSelected={selectedTool === 'eraser'}
-						onClick={() => setSelectedTool('eraser')}
+						onClick={() => handleToolChange('eraser')}
 					/>
 					<ToolButton
 						icon="/canvas/trowel.png"
 						label="Trowel"
 						isSelected={selectedTool === 'trowel'}
-						onClick={() => setSelectedTool('trowel')}
+						onClick={() => handleToolChange('trowel')}
 					/>
 					<div className="border-t-2 border-gray-300 my-2"></div>
 					<button
@@ -299,7 +312,7 @@ export function Canvas() {
 								name={colour.name}
 								value={colour.value}
 								isSelected={selectedColour === colour.value}
-								onClick={() => setSelectedColour(colour.value)}
+								onClick={() => handleColourChange(colour.value)}
 							/>
 						))}
 					</div>
