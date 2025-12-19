@@ -23,7 +23,7 @@ export function App() {
 							<img
 								src="/bricklayer-logo.png"
 								alt=""
-								className="w-full max-w-xl"
+								className="w-full max-w-xl transition-transform duration-300 hover:scale-110"
 							></img>
 						</div>
 						<h2
@@ -39,10 +39,11 @@ export function App() {
 							href="https://forms.fillout.com/t/hZeXivyrgrus"
 							text="RSVP Here!"
 						/>
-						<div className="relative w-full max-w-xl mb-8 mx-auto drop-shadow-xl drop-shadow-black">
+						<div className="relative w-full max-w-xl pt-8 mb-8 mx-auto drop-shadow-lg drop-shadow-black">
 							<img
 								src="/orpheus_lego.png"
 								alt=""
+								className="transition-transform duration-300 hover:drop-shadow-lg drop-shadow-black animate-[rock_2s_ease-in-out_infinite]"
 							></img>
 						</div>
 						<div>
@@ -83,7 +84,7 @@ export function App() {
 								<a
 									href="https://hackclub.slack.com/archives/C091BU30NGK"
 									target="_blank"
-									className="text-3xl text-slate-400"
+									className="text-3xl text-slate-400 transition-all duration-300 hover:text-slate-500 hover:scale-105 inline-block"
 								>
 									#bricklayer
 								</a>{" "}
@@ -91,6 +92,7 @@ export function App() {
 								<a
 									href="https://hackclub.com/slack/"
 									target="_blank"
+									className="text-2xl text-red-300 transition-all duration-300 hover:text-red-500 hover:scale-105 inline-block"
 								>
 									{" "}
 									Hack Club Slack
