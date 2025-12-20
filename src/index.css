@@ -31,3 +31,23 @@ body {
     transform: rotate(5deg);
   }
 }
+
+*, .cursor-default {
+  cursor: url('/cursor/ArrowCursor.png') 22 22, auto;
+}
+
+a, button, [role="button"], .cursor-pointer {
+  cursor: url('/cursor/DragCursor.png') 35 22, pointer;
+}
+
+a *, button *, [role="button"] *, .cursor-pointer * {
+  cursor: inherit;
+}
+
+.cursor-crosshair {
+  cursor: url('/cursor/GunCursor.png') 41 41, crosshair;
+}
+
+.cursor-crosshair * {
+  cursor:inherit
+}
