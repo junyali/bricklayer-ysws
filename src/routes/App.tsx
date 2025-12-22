@@ -50,19 +50,19 @@ export function App() {
 							<div className="flex flex-col lg:flex-row items-center text-center justify-center space-y-8 lg:space-y-0 lg:space-x-4 xl:space-x-8 py-6 text-lg sm:text-3xl font-bold whitespace-nowrap">
 								<StepCard
 									title="Lay the foundation"
-									imagePath="/step_1.png"
+									imagePath="/step_1.jpg"
 									iconPath="/roblox_studio_red.png"
 									titleClassName="text-red-500 text-shadow-sm text-shadow-red-900"
 								/>
 								<StepCard
 									title="Wire it up"
-									imagePath="/step_2.png"
+									imagePath="/step_2.jpg"
 									iconPath="/vscode.png"
 									titleClassName="text-blue-500 text-shadow-sm text-shadow-blue-900"
 								/>
 								<StepCard
 									title="Bricks @ your doorstep"
-									imagePath="/step_3.png"
+									imagePath="/step_3.jpg"
 									iconPath="/pirate_ship.gif"
 									titleClassName="text-yellow-500 text-shadow-sm text-shadow-yellow-900"
 								/>
