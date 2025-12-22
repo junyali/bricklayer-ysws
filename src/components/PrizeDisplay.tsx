@@ -13,8 +13,9 @@ export const PrizeDisplay = () => {
 		"/prizes/lego_identity.png"
 	]
 
-	const infinitePrizes = [...prizes, ...prizes, ...prizes];
-	const [scrollPosition, setScrollPosition] = useState(0);
+	const infinitePrizes = [...prizes, ...prizes, ...prizes, ...prizes, ...prizes];
+	const itemWidth = 220;
+	const [scrollPosition, setScrollPosition] = useState(prizes.length * itemWidth * 2);
 
 	useEffect(() => {
 		let animationFrame: number;
@@ -22,10 +23,9 @@ export const PrizeDisplay = () => {
 
 		const animate = () => {
 			setScrollPosition((prev) => {
-				const itemWidth = 220;
 				const newPos = prev + speed / 60
 
-				if (newPos >= prizes.length * itemWidth) {
+				if (newPos >= prizes.length * itemWidth * 3) {
 					return newPos - (prizes.length * itemWidth);
 				}
 				return newPos;
