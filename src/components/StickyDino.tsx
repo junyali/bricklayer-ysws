@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface Properties {
 	sections: Array<{ id: string; image: string }>;
@@ -6,6 +6,8 @@ interface Properties {
 
 export function StickyDino({ sections }: Properties) {
 	const [currentImage, setCurrentImage] = useState(sections[0]?.image || '');
+	const [topOffset, setTopOffset] = useState('50vh');
+	const dinoRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -28,6 +30,28 @@ export function StickyDino({ sections }: Properties) {
 				}
 			});
 			setCurrentImage(sections[closestSection].image);
+
+			if (dinoRef.current) {
+				const container = dinoRef.current.offsetParent;
+				if (container) {
+					const containerRect = container.getBoundingClientRect();
+					const dinoHeight = dinoRef.current.offsetHeight;
+					const topPosition = window.innerHeight / 2 - dinoHeight / 2;
+					const containerTop = containerRect.top;
+					const containerBottom = containerRect.bottom;
+					const minTop = Math.max(0, containerTop);
+					const maxTop = containerBottom - dinoHeight;
+					const safeTop = Math.max(minTop, Math.min(topPosition, maxTop));
+
+					setTopOffset(`${safeTop}px`);
+
+					/*
+					wow so many f*cking constants
+					"if it works don't change it"
+					- some guy, idk when
+					*/
+				}
+			}
 		};
 
 		window.addEventListener('scroll', handleScroll);
@@ -39,6 +63,9 @@ export function StickyDino({ sections }: Properties) {
 	return (
 		<div
 			className="items-center max-h-[80vh] hidden md:flex w-full md:max-w-sm sticky self-start"
+			style={{
+				top: topOffset,
+			}}
 		>
 			<img
 				src={currentImage}
