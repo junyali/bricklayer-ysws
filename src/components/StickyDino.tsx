@@ -12,7 +12,12 @@ export function StickyDino({ sections }: Properties) {
 	useEffect(() => {
 		const handleScroll = () => {
 			const sectionElements = sections.map(s => document.getElementById(s.id));
-			const viewportCentre = window.scrollY + window.innerHeight / 2;
+
+			let dinoCentre = window.innerHeight / 2;
+			if (dinoRef.current) {
+				const dinoRect = dinoRef.current.getBoundingClientRect();
+				dinoCentre = dinoRect.top + dinoRect.height / 2;
+			}
 
 			let closestSection = 0;
 			let closestDistance = Infinity;
@@ -20,10 +25,10 @@ export function StickyDino({ sections }: Properties) {
 			sectionElements.forEach((element, index) => {
 				if (element) {
 					const rect = element.getBoundingClientRect();
-					const elementCentre = rect.top + window.scrollY + rect.height / 2;
-					const distance = Math.abs(viewportCentre - elementCentre);
+					const elementCentre = rect.top + rect.height / 2;
+					const distance = Math.abs(dinoCentre - elementCentre);
 
-					if (viewportCentre >= elementCentre && distance < closestDistance) {
+					if (distance < closestDistance) {
 						closestDistance = distance;
 						closestSection = index;
 					}
