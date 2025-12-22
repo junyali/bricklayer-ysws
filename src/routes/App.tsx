@@ -136,7 +136,7 @@ export function App() {
 							</a>{" "}
 							for help!
 						</p>
-						<div className="w-[90%] min-h-[80vh] mx-auto bg-white/10 backdrop-blur-sm shadow-black shadow-lg rounded-lg border-4 border-white outline outline-4 outline-neutral-800 p-8 mt-8">
+						<div className="w-full max-w-6xl min-h-[80vh] mx-auto bg-white/10 backdrop-blur-sm shadow-black shadow-lg rounded-lg border-4 border-white outline outline-4 outline-neutral-800 p-8 mt-8">
 							<FAQ />
 						</div>
 					</div>
