@@ -66,18 +66,22 @@ export function StickyDino({ sections }: Properties) {
 	}, [sections]);
 
 	return (
-		<div
-			className="items-center max-h-[80vh] hidden md:flex w-full md:max-w-sm sticky self-start"
-			style={{
-				top: topOffset,
-			}}
-		>
-			<img
-				src={currentImage}
-				alt="orphy!!"
-				className="w-full h-auto mx-auto shadow-lg"
-				key={currentImage}
-			/>
+		<div className="relative hidden md:flex w-full md:max-w-sm">
+			<div className="absolute left-1/2 top-0 bottom-0 w-8 -translate-x-1/2 bg-gray-950 rounded-lg border-4 border-white outline outline-4 outline-neutral-800 shadow-lg z-0"></div>
+			<div
+				ref={dinoRef}
+				className="items-center max-h-[80vh] w-full flex sticky self-start z-10 rounded-sm border-4 border-white outline outline-4 outline-neutral-800 shadow-lg"
+				style={{
+					top: topOffset,
+				}}
+			>
+				<img
+					src={currentImage}
+					alt="orphy!!"
+					className="w-full h-auto mx-auto shadow-lg"
+					key={currentImage}
+				/>
+			</div>
 		</div>
 	);
 }

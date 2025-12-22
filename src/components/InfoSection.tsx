@@ -12,7 +12,7 @@ export function InfoSection({ id, image, title, description}: Properties) {
 			className="flex flex-col md:flex-row items-start gap-4 scroll-mt-8"
 			data-image={image}
 		>
-			<div className="w-full md:max-w-sm md:hidden">
+			<div className="w-full md:max-w-sm md:hidden rounded-sm border-4 border-white outline outline-4 outline-neutral-800 shadow-lg">
 				<img
 					src={image}
 					alt=""
