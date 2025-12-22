@@ -108,7 +108,7 @@ export function App() {
 				>
 					<div className="w-full px-8">
 						<h2
-							className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-center mb-16 text-red-500/80 drop-shadow-lg drop-shadow-black leading-tight"
+							className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-center mb-8 text-red-500/80 drop-shadow-lg drop-shadow-black leading-tight"
 							style={{
 								WebkitTextStroke: '1px white',
 								paintOrder: 'stroke fill'
@@ -116,7 +116,24 @@ export function App() {
 						>
 							FAQ
 						</h2>
-						<div className="w-[90%] min-h-[80vh] mx-auto bg-white/10 backdrop-blur-sm shadow-sm border-inset border-4 border-black p-8">
+						<p
+							className="text-center text-2xl text-slate-50 font-bold pt-2 drop-shadow-lg drop-shadow-black"
+							style={{
+								WebkitTextStroke: '2px black',
+								paintOrder: 'stroke fill'
+							}}
+						>
+							For more information or help, please ask in{' '}
+							<a
+								href="https://hackclub.slack.com/archives/C091BU30NGK"
+								target="_blank"
+								className="text-3xl text-slate-400 transition-all duration-300 hover:text-slate-500 hover:scale-105 inline-block"
+							>
+								#bricklayer
+							</a>{" "}
+							for help!
+						</p>
+						<div className="w-[90%] min-h-[80vh] mx-auto bg-white/10 backdrop-blur-sm shadow-sm border-inset border-4 border-black p-8 mt-8">
 							<FAQ />
 						</div>
 					</div>
