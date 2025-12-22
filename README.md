@@ -1,73 +1,56 @@
-# React + TypeScript + Vite
+# Bricklayer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the site repository for [Bricklayer](https://bricklayer-ysws.vercel.app), a potential YSWS idea.
 
-Currently, two official plugins are available:
+You Ship: a game built in Roblox, We Ship: LEGO® bricks and more!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## React Compiler
+This is a [React](https://react.dev) + [TypeScript](https://typescriptlang.org) project built with [Vite](https://vite.dev) and [MDX](https://mdxjs.com).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js (v22.21.0 or higher)
+- npm or yarn package manager
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Clone the repository:
+```console
+$ git clone https://github.com/junyali/bricklayer-ysws.git
+$ cd bricklayer-ysws
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install dependencies:
+```console
+$ npm install
+```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Run the development server:
+```console
+$ npm run dev
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+The site will be available at `https://localhost:5173`
+
+## Deployment (Vercel)
+
+Install Vercel CLI
+```console
+$ npm install -g vercel
+```
+
+Deploy:
+```console
+$ vercel
+```
+
+## Extras
+
+This project uses GitHub API to fetch the latest commit information of the main branch in this repository. A PAT is not required unless you want to avoid rate limiting:
+
+Create a `.env` file in the root directory:
+
+```env
+GITHUB_API_KEY=your_github_pat
 ```
