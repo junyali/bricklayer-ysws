@@ -75,12 +75,19 @@ export function StickyDino({ sections }: Properties) {
 					top: topOffset,
 				}}
 			>
-				<img
-					src={currentImage}
-					alt="orphy!!"
-					className="w-full h-auto mx-auto shadow-lg"
-					key={currentImage}
-				/>
+				<a
+					href="https://vault.hackclub.com/report-form.mp4"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="block w-full h-auto"
+				>
+					<img
+						src={currentImage}
+						alt="orphy!!"
+						className="w-full h-auto mx-auto shadow-lg"
+						key={currentImage}
+					/>
+				</a>
 			</div>
 		</div>
 	);

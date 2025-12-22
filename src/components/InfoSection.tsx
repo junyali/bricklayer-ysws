@@ -15,11 +15,17 @@ export function InfoSection({ id, image, title, description}: Properties) {
 			data-image={image}
 		>
 			<div className="w-full md:max-w-sm md:hidden rounded-sm border-4 border-white outline outline-4 outline-neutral-800 shadow-lg">
-				<img
-					src={image}
-					alt=""
-					className="w-full h-auto mx-auto shadow-lg"
-				/>
+				<a
+					href="https://vault.hackclub.com/report-form.mp4"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<img
+						src={image}
+						alt=""
+						className="w-full h-auto mx-auto shadow-lg"
+					/>
+				</a>
 			</div>
 			<div className="w-full space-y-2">
 				<h2
