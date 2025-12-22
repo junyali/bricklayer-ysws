@@ -1,17 +1,21 @@
+import './index.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter } from 'react-router';
 import { RouterProvider } from 'react-router/dom';
-import './index.css'
-import App from './App.tsx'
-import { SideBar } from './components/SideBar.tsx';
-import { DocPage } from './layouts/DocPage.tsx';
+import { App } from './routes/App'
+import { SideBar } from './components/SideBar';
+import { DocPage } from './layouts/DocPage';
+import { NotFound } from './routes/NotFound';
+import { Wrapper } from './components/canvas/Wrapper';
+import { NotSupported } from './routes/NotSupported';
+
+/* Markdown Pages*/
 import Guide from './pages/Guide.mdx';
 import Advanced from './pages/Advanced.mdx';
 import Resources from './pages/Resources.mdx';
 import Submission from './pages/Submission.mdx';
 import Faq from './pages/FAQ.mdx';
-import { NotFound } from "./pages/NotFound.tsx";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +51,14 @@ const router = createBrowserRouter([
     element: (
       <DocPage Content={ Faq } SideBar={ SideBar } />
     ),
+  },
+  {
+    path: '/canvas',
+    element: <Wrapper />
+  },
+  {
+    path: '/notsupported',
+    element: <NotSupported />
   },
   {
     path: '*',

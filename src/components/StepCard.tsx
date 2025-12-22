@@ -7,13 +7,13 @@ interface Properties {
 
 export function StepCard({ title, imagePath, iconPath, titleClassName }: Properties) {
 	return (
-		<div>
+		<div className="flex-1 min-w-0">
 			<h3 className={titleClassName}>{title}</h3>
-			<div className="relative">
+			<div className="relative transition-transform duration-300 hover:scale-105">
 				<img
 					src={imagePath}
 					alt={title}
-					className="max-h-56 sm:max-h-80 md:max-h-96 rounded-sm my-2 border-neutral-800 border-4 p-1 sm:p-2 border-white drop-shadow-xl drop-shadow-black"
+					className="w-full h-auto aspect-[16/9] object-cover rounded-sm my-2 border-white border-4 outline outline-4 outline-neutral-800 drop-shadow-xl drop-shadow-black"
 				></img>
 				<img
 					src={iconPath}

@@ -1,41 +1,39 @@
-import {OrpheusFlag} from "./OrpheusFlag.tsx";
+import { Link } from 'react-router';
+import { OrpheusFlag } from './OrpheusFlag';
 
 export function SideBar() {
 	return (
 		<aside
-			className="flex flex-col bg-white space-y-2 max-w-prose p-2 h-screen border-r-4 border-black border-solid bg-repeat bg-center"
-			style={{
-				backgroundImage: 'url(/inlet_bright_white.png)',
-				backgroundSize: '256px 256px'
-			}}
+			className="flex flex-col bg-white space-y-2 max-w-prose p-2 h-screen border-r-4 border-black border-solid bg-[url(/inlet_bright_white.png)] bg-[length:256px_256px] bg-repeat bg-center"
 		>
-			<a
-				href="/"
+			<Link
+				to="/"
+				className="hover:scale-110 duration-300 transition-transform"
 			>
 				<img
 					src="/bricklayer-logo.png"
 					alt=""
 					className="my-2"
 				></img>
-			</a>
+			</Link>
 			<nav className="text-xl">
 				<ul>
 					<li>
-						<a href="/guide" className="block py-2 px-4 rounded hover:bg-white/50 transition-all font-semibold text-red-500 text-shadow-sm text-shadow-red-900">
+						<Link to="/guide" className="block py-2 px-4 rounded hover:bg-white/50 transition-all font-semibold text-red-500 text-shadow-sm text-shadow-red-900">
 							Guide
-						</a>
-						<a href="/advanced" className="block py-2 px-4 rounded hover:bg-white/50 transition-all font-semibold text-orange-500 text-shadow-sm text-shadow-orange-900">
+						</Link>
+						<Link to="/advanced" className="block py-2 px-4 rounded hover:bg-white/50 transition-all font-semibold text-orange-500 text-shadow-sm text-shadow-orange-900">
 							Advancing to the next step
-						</a>
-						<a href="/resources" className="block py-2 px-4 rounded hover:bg-white/50 transition-all font-semibold text-yellow-500 text-shadow-sm text-shadow-yellow-900">
+						</Link>
+						<Link to="/resources" className="block py-2 px-4 rounded hover:bg-white/50 transition-all font-semibold text-yellow-500 text-shadow-sm text-shadow-yellow-900">
 							Resources
-						</a>
-						<a href="/submission" className="block py-2 px-4 rounded hover:bg-white/50 transition-all font-semibold text-green-500 text-shadow-sm text-shadow-green-900">
+						</Link>
+						<Link to="/submission" className="block py-2 px-4 rounded hover:bg-white/50 transition-all font-semibold text-green-500 text-shadow-sm text-shadow-green-900">
 							Submit your game!
-						</a>
-						<a href="/faq" className="block py-2 px-4 rounded hover:bg-white/50 transition-all font-semibold text-blue-500 text-shadow-sm text-shadow-blue-900">
+						</Link>
+						<Link to="/faq" className="block py-2 px-4 rounded hover:bg-white/50 transition-all font-semibold text-blue-500 text-shadow-sm text-shadow-blue-900">
 							FAQ
-						</a>
+						</Link>
 					</li>
 				</ul>
 			</nav>

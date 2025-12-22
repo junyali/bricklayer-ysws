@@ -1,0 +1,52 @@
+import React from 'react';
+
+interface Properties {
+	id: string;
+	image: string;
+	title: string;
+	description: React.ReactNode;
+}
+
+export function InfoSection({ id, image, title, description}: Properties) {
+	return (
+		<div
+			id={id}
+			className="flex flex-col md:flex-row items-start gap-4 scroll-mt-8"
+			data-image={image}
+		>
+			<div className="w-full md:max-w-sm md:hidden rounded-sm border-4 border-white outline outline-4 outline-neutral-800 shadow-lg">
+				<a
+					href="https://vault.hackclub.com/report-form.mp4"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<img
+						src={image}
+						alt=""
+						className="w-full h-auto mx-auto shadow-lg"
+					/>
+				</a>
+			</div>
+			<div className="w-full space-y-2">
+				<h2
+					className="text-3xl sm:text-4xl font-extrabold text-red-500/80 drop-shadow-sm drop-shadow-black"
+					style={{
+						WebkitTextStroke: '1px white',
+						paintOrder: 'stroke fill'
+					}}
+				>
+					{title}
+				</h2>
+				<p
+					className="text-xl text-slate-50 font-bold drop-shadow-sm drop-shadow-black"
+					style={{
+						WebkitTextStroke: '2px black',
+						paintOrder: 'stroke fill'
+					}}
+				>
+					{description}
+				</p>
+			</div>
+		</div>
+	);
+}

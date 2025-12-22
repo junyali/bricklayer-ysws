@@ -8,7 +8,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  background-color: #242424;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,6 +23,31 @@ body {
   background-position: center;
 }
 
-a {
-  text-decoration: inherit;
+@keyframes rock {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+*, .cursor-default {
+  cursor: url('/cursor/ArrowCursor.png') 22 22, auto;
+}
+
+a, button, [role="button"], .cursor-pointer {
+  cursor: url('/cursor/DragCursor.png') 35 22, pointer;
+}
+
+a *, button *, [role="button"] *, .cursor-pointer * {
+  cursor: inherit;
+}
+
+.cursor-crosshair {
+  cursor: url('/cursor/GunCursor.png') 41 41, crosshair;
+}
+
+.cursor-crosshair * {
+  cursor:inherit
 }

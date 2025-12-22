@@ -33,6 +33,10 @@ export const faqData: Properties[] = [
 		answer: "Sure! As long as you're doing a majority of the work (e.g., not stealing code from free models)."
 	},
 	{
+		question: "What can I make?",
+		answer: "Anything that can be published as a game on Roblox. Source code must be public on GitHub and time spent using Studio (e.g., building) cannot be tracked."
+	},
+	{
 		question: "I have a latta questions to be answered!!",
 		answer: "Join the <b><u><a href='https://hackclub.slack.com/archives/C091BU30NGK'>#bricklayer</a></u></b> channel on the Hack Club Slack. We don't bite, promise!!"
 	}

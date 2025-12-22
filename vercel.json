@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build","installCommand": "npm ci && npm install --no-save --platform=linuxmusl --arch=x64 lightningcss @tailwindcss/oxide",
+  "framework": "vite",
+  "env": {
+    "npm_config_target_platform": "linuxmusl",
+    "npm_config_target_arch": "x64"
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
