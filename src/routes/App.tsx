@@ -100,18 +100,18 @@ export function App() {
 								!
 							</p>
 						</div>
-						<div>
-							<div className="bg-[url(/new_studs.png)] bg-[length:512px_512px] bg-center bg-repeat flex flex-col md:flex-row items-start shadow-black shadow-lg rounded-lg border-4 border-white outline outline-4 outline-neutral-800 gap-4 p-8">
-								<div className="w-full md:max-w-md">
+						<div className="bg-[url(/new_studs.png)] bg-[length:512px_512px] bg-center bg-repeat shadow-black shadow-lg rounded-lg border-4 border-white outline outline-4 outline-neutral-800 space-y-8 p-8">
+							<div className="flex flex-col md:flex-row items-start gap-4">
+								<div className="w-full md:max-w-sm">
 									<img
 										src="/confused_orpheus.png"
 										alt="damn orpheus you really confused"
 										className="w-full h-auto mx-auto shadow-lg"
 									/>
 								</div>
-								<div className="w-full space-y-4">
+								<div className="w-full space-y-2">
 									<h2
-										className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-red-500/80 drop-shadow-lg drop-shadow-black"
+										className="text-3xl sm:text-4xl font-extrabold text-red-500/80 drop-shadow-sm drop-shadow-black"
 										style={{
 											WebkitTextStroke: '1px white',
 											paintOrder: 'stroke fill'
@@ -120,7 +120,7 @@ export function App() {
 										Roblox.. really?!?!
 									</h2>
 									<p
-										className="leading-relaxed text-2xl text-slate-50 font-bold pt-2 drop-shadow-lg drop-shadow-black"
+										className="leading-relaxed text-xl text-slate-50 font-bold drop-shadow-sm drop-shadow-black"
 										style={{
 											WebkitTextStroke: '2px black',
 											paintOrder: 'stroke fill'
