@@ -66,7 +66,7 @@ export function StickyDino({ sections }: Properties) {
 	}, [sections]);
 
 	return (
-		<div className="relative hidden md:flex w-full md:max-w-sm">
+		<div className="relative hidden md:flex w-full md:max-w-xs">
 			<div className="absolute left-1/2 top-0 bottom-0 w-8 -translate-x-1/2 bg-gray-950 rounded-lg border-4 border-white outline outline-4 outline-neutral-800 shadow-lg z-0"></div>
 			<div
 				ref={dinoRef}
