@@ -24,11 +24,14 @@ export function App() {
 					<div className="max-w-7xl">
 						<div className="mt-16 text-slate-950 mx-8 font-mono">
 							<div className="flex justify-center items-center align-middle mb-8">
-								<img
-									src="/bricklayer-logo.png"
-									alt=""
-									className="w-full max-w-xl transition-transform duration-300 hover:scale-110"
-								></img>
+								<picture>
+									<source srcSet="/bricklayer-logo.webp" type="image/webp" />
+									<img
+										src="/bricklayer-logo.png"
+										alt=""
+										className="w-full max-w-xl transition-transform duration-300 hover:scale-110"
+									></img>
+								</picture>
 							</div>
 							<h2
 								className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-16 bg-gradient-to-r from-red-500 via-yellow-400 to-green-500 drop-shadow-xl bg-clip-text drop-shadow-black text-transparent leading-tight px-4"

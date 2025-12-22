@@ -2,15 +2,15 @@ import {useState, useEffect} from 'react';
 
 export const PrizeDisplay = () => {
 	const prizes = [
-		"/prizes/lego_box.png",
-		"/prizes/blahaj.png",
-		"/prizes/mouldking_gt.png",
-		"/prizes/lego_millenium.png",
-		"/prizes/mouldking_turbojet.png",
-		"/prizes/lego_creeper.png",
-		"/prizes/reobrix_clocktower.png",
-		"/prizes/lego_creative.png",
-		"/prizes/lego_identity.png"
+		"/prizes/lego_box.webp",
+		"/prizes/blahaj.webp",
+		"/prizes/mouldking_gt.webp",
+		"/prizes/lego_millenium.webp",
+		"/prizes/mouldking_turbojet.webp",
+		"/prizes/lego_creeper.webp",
+		"/prizes/reobrix_clocktower.webp",
+		"/prizes/lego_creative.webp",
+		"/prizes/lego_identity.webp"
 	]
 
 	const infinitePrizes = [...prizes, ...prizes, ...prizes, ...prizes, ...prizes];
@@ -64,11 +64,14 @@ export const PrizeDisplay = () => {
 							}}
 						>
 							<div className="p-4 w-48 h-48 flex items-center justify-center">
-								<img
-									src={prize}
-									alt="meow"
-									className="max-w-full max-h-full object-contain drop-shadow-lg drop-shadow-black"
-								/>
+								<picture>
+									<source srcSet={prize} type="image/webp" />
+									<img
+										src={prize.replace('.webp', '.png')}
+										alt="meow"
+										className="max-w-full max-h-full object-contain drop-shadow-lg drop-shadow-black"
+									/>
+								</picture>
 							</div>
 						</div>
 					);
