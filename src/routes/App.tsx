@@ -6,6 +6,8 @@ import { StepCard } from '../components/StepCard.tsx';
 import { Separator } from '../components/Separator.tsx';
 import { FAQ } from '../components/FAQ.tsx';
 import { BrickButton } from '../components/BrickButton.tsx';
+import { InfoContainer } from '../components/InfoContainer.tsx';
+import { infoData } from '../data/info';
 
 export function App() {
 	return (
@@ -100,37 +102,7 @@ export function App() {
 								!
 							</p>
 						</div>
-						<div className="bg-[url(/new_studs.png)] bg-[length:512px_512px] bg-center bg-repeat shadow-black shadow-lg rounded-lg border-4 border-white outline outline-4 outline-neutral-800 space-y-8 p-8">
-							<div className="flex flex-col md:flex-row items-start gap-4">
-								<div className="w-full md:max-w-sm">
-									<img
-										src="/confused_orpheus.png"
-										alt="damn orpheus you really confused"
-										className="w-full h-auto mx-auto shadow-lg"
-									/>
-								</div>
-								<div className="w-full space-y-2">
-									<h2
-										className="text-3xl sm:text-4xl font-extrabold text-red-500/80 drop-shadow-sm drop-shadow-black"
-										style={{
-											WebkitTextStroke: '1px white',
-											paintOrder: 'stroke fill'
-										}}
-									>
-										Roblox.. really?!?!
-									</h2>
-									<p
-										className="leading-relaxed text-xl text-slate-50 font-bold drop-shadow-sm drop-shadow-black"
-										style={{
-											WebkitTextStroke: '2px black',
-											paintOrder: 'stroke fill'
-										}}
-									>
-										Yeah we know. <i>That</i> Roblox. Powering those memes and obbies is a surprisingly powerful game engine. Multiplayer, physics, UI, data storage - all out of the box. No infrastructure needed! It's one of the fastest ways to go from "idea" to "playable multiplayer game", even if you're new to game dev!
-									</p>
-								</div>
-							</div>
-						</div>
+						<InfoContainer items={infoData} />
 					</div>
 				</div>
 				<Separator />
