@@ -101,7 +101,7 @@ export function App() {
 							</p>
 						</div>
 						<div>
-							<div className="bg-[url(/new_studs.png)] bg-[length:512px_512px] flex flex-col md:flex-row items-start shadow-black shadow-lg rounded-lg border-4 border-white outline outline-4 outline-neutral-800 gap-4 p-8">
+							<div className="bg-[url(/new_studs.png)] bg-[length:512px_512px] bg-center bg-repeat flex flex-col md:flex-row items-start shadow-black shadow-lg rounded-lg border-4 border-white outline outline-4 outline-neutral-800 gap-4 p-8">
 								<div className="w-full md:max-w-md">
 									<img
 										src="/confused_orpheus.png"
