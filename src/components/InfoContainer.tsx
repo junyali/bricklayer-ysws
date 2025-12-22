@@ -1,3 +1,4 @@
+import React from 'react';
 import { InfoSection } from './InfoSection';
 import { StickyDino } from './StickyDino';
 
@@ -5,7 +6,7 @@ interface Properties {
 	id: string;
 	image: string;
 	title: string;
-	description: string;
+	description: React.ReactNode;
 }
 
 interface ContainerProperties {

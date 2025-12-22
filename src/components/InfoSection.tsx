@@ -1,8 +1,10 @@
+import React from 'react';
+
 interface Properties {
 	id: string;
 	image: string;
 	title: string;
-	description: string;
+	description: React.ReactNode;
 }
 
 export function InfoSection({ id, image, title, description}: Properties) {
@@ -30,13 +32,14 @@ export function InfoSection({ id, image, title, description}: Properties) {
 					{title}
 				</h2>
 				<p
-					className="leading-relaxed text-xl text-slate-50 font-bold drop-shadow-sm drop-shadow-black"
+					className="text-xl text-slate-50 font-bold drop-shadow-sm drop-shadow-black"
 					style={{
 						WebkitTextStroke: '2px black',
 						paintOrder: 'stroke fill'
 					}}
-					dangerouslySetInnerHTML={{ __html: description}}
-				/>
+				>
+					{description}
+				</p>
 			</div>
 		</div>
 	);
