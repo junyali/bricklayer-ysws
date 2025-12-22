@@ -8,6 +8,7 @@ import { FAQ } from '../components/FAQ.tsx';
 import { BrickButton } from '../components/BrickButton.tsx';
 import { InfoContainer } from '../components/InfoContainer.tsx';
 import { infoData } from '../data/info';
+import { PrizeDisplay } from '../components/PrizeDisplay.tsx';
 
 export function App() {
 	return (
@@ -19,7 +20,7 @@ export function App() {
 				<div className="fixed top-0 max-w-48 right-4 sm:right-5 md:right-10 z-100">
 					<NavBar />
 				</div>
-				<div className="w-full flex flex-grow justify-center items-center mb-32">
+				<div className="w-full flex flex-grow justify-center items-center">
 					<div className="max-w-7xl">
 						<div className="mt-16 text-slate-950 mx-8 font-mono">
 							<div className="flex justify-center items-center align-middle mb-8">
@@ -106,6 +107,9 @@ export function App() {
 							<InfoContainer items={infoData} />
 						</div>
 					</div>
+				</div>
+				<div className="max-w-none w-full">
+					<PrizeDisplay />
 				</div>
 				<Separator />
 				<div
