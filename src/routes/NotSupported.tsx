@@ -16,7 +16,7 @@ export function NotSupported() {
 						className="max-w-md mx-auto block"
 					>
 						<img
-							src="/confused_dinosaur.png"
+							src="/dinos/confused_dinosaur.png"
 							alt=""
 							className="w-full transition-transform duration-300 hover:drop-shadow-lg drop-shadow-black animate-[rock_2s_ease-in-out_infinite]"
 						></img>
